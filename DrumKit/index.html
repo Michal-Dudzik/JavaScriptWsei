@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>DrumKit</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="drumkit.js" defer></script>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@300&display=swap"
+			rel="stylesheet" />
+	</head>
+	<body>
+		<audio src="./sounds/hihat.wav" id="hihat"></audio>
+		<audio src="./sounds/clap.wav" id="clap"></audio>
+		<audio src="./sounds/kick.wav" id="kick"></audio>
+		<audio src="./sounds/openhat.wav" id="openhat"></audio>
+		<audio src="./sounds/boom.wav" id="boom"></audio>
+		<audio src="./sounds/ride.wav" id="ride"></audio>
+		<audio src="./sounds/snare.wav" id="snare"></audio>
+		<audio src="./sounds/tom.wav" id="tom"></audio>
+		<audio src="./sounds/tink.wav" id="tink"></audio>
+
+		<div id="main" class="noSelect">
+			<img id="yamaha" src="images/yamaha_noButtons.png" class="center" />
+
+			<div id="buttons">
+				<div id="a" class="wholeDrum" style="top: 10%; left: 17%">
+					<img src="./images/drums/D1.png" />
+					<a class="key">A</a>
+				</div>
+
+				<div id="s" class="wholeDrum" style="top: 33.5%; left: 22%">
+					<img src="./images/drums/D2.png" />
+					<a class="key">S</a>
+				</div>
+
+				<div id="d" class="wholeDrum" style="top: 57.5%; left: 26%">
+					<img src="./images/drums/D3.png" />
+					<a class="key">D</a>
+				</div>
+
+				<div id="f" class="wholeDrum" style="top: 20.7%; left: 34.4%">
+					<img src="./images/drums/D4.png" />
+					<a class="key">F</a>
+				</div>
+
+				<div id="g" class="wholeDrum" style="top: 20.7%; left: 51%">
+					<img src="./images/drums/D5.png" />
+					<a class="key">G</a>
+				</div>
+
+				<div id="k" class="wholeDrum" style="top: 57.5%; left: 59.5%">
+					<img src="./images/drums/D6.png" />
+					<a class="key">K</a>
+				</div>
+
+				<div id="j" class="wholeDrum" style="top: 33.5%; left: 67.7%">
+					<img src="./images/drums/D7.png" />
+					<a class="key">J</a>
+				</div>
+
+				<div id="h" class="wholeDrum" style="top: 10%; left: 72.7%">
+					<img src="./images/drums/D8.png" />
+					<a class="key">H</a>
+				</div>
+			</div>
+
+			<div class="button r" id="button-9">
+				<input id="record" type="checkbox" class="checkbox" />
+				<div class="knobs">
+					<span></span>
+				</div>
+				<div class="layer"></div>
+			</div>
+
+			<div class="placeForRecords">
+				<ul class="records"></ul>
+			</div>
+		</div>
+	</body>
+</html>

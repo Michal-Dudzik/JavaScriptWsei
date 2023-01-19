@@ -1,0 +1,11 @@
+.editor-button {
+	background-color: var(--button);
+	color: var(--text);
+	border: none;
+	outline: none;
+	border-radius: 50%;
+	cursor: pointer;
+	padding: 0.5em;
+	margin: 0.5em;
+	transition: background 500ms ease-in-out;
+}

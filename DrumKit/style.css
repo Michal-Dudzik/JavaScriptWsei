@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@300&display=swap');
+
+:root {
+	--background: #5c5c5c;
+	--drum: #a70715;
+	--buttons: #7d0b0b;
+}
+
+body {
+	background-color: var(--background);
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+/* #main {
+	position: relative;
+	width: 100%;
+	height: 100%;
+} */
+
+#yamaha {
+	-webkit-user-drag: none;
+}
+
+.center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.wholeDrum {
+	position: absolute;
+	display: flex;
+	width: max-content;
+	height: max-content;
+	pointer-events: none;
+}
+
+.wholeDrum a {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.key {
+	color: var(--drum);
+	font-family: 'Sofia Sans';
+	font-size: 60px;
+}
+
+.keyPressed {
+	box-shadow: 0 0 20px var(--drum);
+	border-radius: 50%;
+}
+
+.noSelect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* recording */
+
+.knobs,
+.layer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.button {
+	position: relative;
+	top: 715px;
+	left: 45%;
+	width: 74px;
+	height: 36px;
+	/* margin: -20px auto 0 auto; */
+	overflow: hidden;
+}
+
+.button.r,
+.button.r .layer {
+	border-radius: 100px;
+}
+
+.checkbox {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 3;
+}
+
+.knobs {
+	z-index: 2;
+}
+
+.layer {
+	width: 100%;
+	background-color: #929a9d;
+	transition: 0.3s ease all;
+	z-index: 1;
+}
+
+#button-9 .knobs:before,
+#button-9 .knobs:after,
+#button-9 .knobs span {
+	position: absolute;
+	top: 4px;
+	width: 20px;
+	height: 10px;
+	font-size: 10px;
+	padding: 9px 4px;
+	border-radius: 50%;
+	transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#button-9 .knobs span {
+	left: 4px;
+	background-color: rgb(226, 226, 226);
+	z-index: 1;
+}
+
+#button-9 .checkbox:checked + .knobs span {
+	left: 42px;
+	background-color: var(--drum);
+}
+
+#button-9 .checkbox:checked ~ .layer {
+	background-color: #c1a1a1;
+}
+
+ul {
+	margin: 0;
+	padding: 5px;
+	list-style: none;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+li {
+	color: var(--drum);
+	font-family: 'Sofia Sans';
+	font-size: 20px;
+	font-weight: 800;
+	padding-top: 2px;
+}
+
+.placeForRecords {
+	width: 120px;
+	height: 36px;
+	background-color: #000000;
+	position: absolute;
+	top: 715px;
+	left: 51%;
+	overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+	background-color: var(--drum);
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: black;
+}

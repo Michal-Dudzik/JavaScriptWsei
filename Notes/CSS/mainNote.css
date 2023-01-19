@@ -1,0 +1,68 @@
+#color-picker {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1em;
+}
+
+.color-picker-button {
+	cursor: pointer;
+	border-radius: 50%;
+}
+
+.red {
+	color: var(--red);
+}
+
+.green {
+	color: var(--green);
+}
+
+.blue {
+	color: var(--blue);
+}
+
+.yellow {
+	color: var(--yellow);
+}
+
+.white {
+	color: var(--white);
+}
+
+.notes {
+	display: flex;
+	height: 100%;
+}
+
+.notes__preview {
+	display: flex;
+	flex-direction: column;
+	padding: 2em 3em;
+	flex-grow: 1;
+}
+
+.notes__title,
+.notes__body {
+	background-color: var(--background);
+	color: var(--text);
+	transition: background 500ms ease-in-out;
+	border: none;
+	outline: none;
+	width: 100%;
+}
+
+.notes__title {
+	font-size: 3em;
+	font-weight: bold;
+}
+
+.notes__body {
+	/* background-color: var(--note-body); */
+	flex-grow: 1;
+	font-size: 1.2em;
+	line-height: 1.5;
+	margin-top: 2em;
+	width: 95%;
+	resize: none;
+}

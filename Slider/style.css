@@ -1,0 +1,99 @@
+body {
+	height: 100vh;
+	width: 100vw;
+	background-color: black;
+	margin: 0rem;
+	overflow: hidden;
+}
+
+#title {
+	position: absolute;
+	left: 45%;
+	top: -8%;
+	color: transparent;
+	background-image: linear-gradient(to left, #3498db, #9b59b6, #f10f4f);
+	-webkit-background-clip: text;
+	background-size: 300%;
+	animation: animate 5s linear infinite;
+	font-size: 7rem;
+	font-family: 'Dancing Script', sans-serif;
+	user-select: none;
+}
+
+@keyframes animate {
+	0% {
+		background-position: 0 100%;
+	}
+
+	50% {
+		background-position: 100% 0;
+	}
+
+	100% {
+		background-position: 0 100%;
+	}
+}
+
+#image-track {
+	display: flex;
+	align-items: center;
+	gap: 4vmin;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-8%, -50%);
+	user-select: none;
+}
+
+#image-track > .image {
+	width: 40vmin;
+	height: 56vmin;
+	object-fit: cover;
+	object-position: 100% center;
+}
+
+#enhance {
+	width: 100%;
+	transition: all 0.5s ease-out;
+}
+
+.show {
+	animation: appear 0.5s ease-out forwards;
+}
+
+.hide {
+	animation: vanish 0.5s ease-out forwards;
+}
+
+@keyframes appear {
+	0% {
+		opacity: 0%;
+		visibility: hidden;
+	}
+
+	100% {
+		opacity: 100%;
+		visibility: visible;
+	}
+}
+
+@keyframes vanish {
+	0% {
+		opacity: 100%;
+		visibility: visible;
+	}
+
+	100% {
+		opacity: 0%;
+		visibility: hidden;
+	}
+}
+
+.moveDown {
+	transform: translate(-55%, 320%) !important;
+}
+
+.moveDown > .image {
+	height: 10% !important;
+	width: 20% !important;
+}

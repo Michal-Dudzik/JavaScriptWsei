@@ -1,0 +1,147 @@
+.notes__sidebar {
+	flex-shrink: 0;
+	width: 300px;
+}
+
+.function__tiles {
+	background: var(--button);
+	border: none;
+	color: var(--button-text);
+	cursor: pointer;
+	font-size: 1.25em;
+	font-weight: bold;
+	padding: 0.75em 0;
+	width: 100%;
+}
+
+.notes__search {
+	position: relative;
+	margin-top: 1em;
+	border-radius: 0 25px 0 25px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.notes__search input {
+	color: var(--black);
+	padding: 5px;
+	border: none;
+	border-radius: 50px;
+	margin-bottom: 15px;
+	background-color: var(--white);
+	width: 70%;
+	height: 25px;
+}
+
+.notes__search::before {
+	content: '';
+	position: absolute;
+	background-color: transparent;
+	top: -50px;
+	left: 0px;
+	height: 50px;
+	width: 25px;
+	border-bottom-left-radius: 25px;
+	box-shadow: 0 25px 0 0 var(--button);
+	z-index: -1;
+}
+
+.notes__search::after {
+	content: '';
+	position: absolute;
+	background-color: transparent;
+	top: 53px;
+	right: 0px;
+	height: 50px;
+	width: 25px;
+	border-top-right-radius: 25px;
+	box-shadow: 0 -25px 0 0 var(--button);
+	z-index: 2;
+}
+
+input[type='checkbox'] {
+	display: none;
+}
+
+.label {
+	display: inline-block;
+}
+
+input[type='checkbox']:checked + .label {
+	color: var(--gold);
+}
+
+.notes__add {
+	position: relative;
+	border-radius: 25px 0 25px 0;
+	margin-bottom: 1em;
+}
+
+.notes__add::before {
+	content: '';
+	position: absolute;
+	background-color: transparent;
+	top: 53px;
+	left: 0px;
+	height: 50px;
+	width: 25px;
+	border-top-left-radius: 25px;
+	box-shadow: 0 -25px 0 0 var(--button);
+	z-index: -1;
+}
+
+.notes__add::after {
+	content: '';
+	position: absolute;
+	background-color: transparent;
+	top: -50px;
+	right: 0px;
+	height: 50px;
+	width: 25px;
+	border-bottom-right-radius: 25px;
+	box-shadow: 0 25px 0 0 var(--button);
+}
+
+.notes__list {
+	overflow-y: auto;
+	max-height: calc(100vh - 150px);
+}
+
+.notes__list-item {
+	border-right: 3px solid var(--button);
+	cursor: pointer;
+	position: relative;
+}
+
+.notes__list-item:hover {
+	background-color: var(--selected-note);
+}
+
+.notes__list-item--selected {
+	background: var(--selected-note);
+	border-right: 5px solid var(--selected-border);
+	font-weight: bold;
+	transition: border-right 300ms ease-in-out, padding-right 300ms ease-in-out;
+}
+
+.notes__small-title,
+.notes__small-updated {
+	color: var(--text);
+	padding: 10px;
+}
+
+.notes__small-title {
+	font-size: 1.2em;
+}
+
+.notes__small-body {
+	color: var(--text);
+	padding: 0 10px;
+}
+
+.notes__small-updated {
+	color: var(--text);
+	font-style: italic;
+	text-align: right;
+}
