@@ -13,30 +13,31 @@ export default class NotesView {
 		this.root.innerHTML = `
             <div class="notes__sidebar">
 			
-			<div class="notes__search function__tiles">
-					<input type="text" placeholder="Search" />
-					<div class="favorite__list">
-						<span class="material-symbols-outlined" style="color:var(--white)"> folder_copy </span>
-						<span class="material-symbols-outlined" style="color:var(--gold)"> star </span>
-						<span class="material-symbols-outlined" style="color:var(--noteColor1)">trip_origin</span>
-						<span class="material-symbols-outlined" style="color:var(--noteColor4)">trip_origin</span>
-						<span class="material-symbols-outlined" style="color:var(--noteColor3)">trip_origin</span>
-						<span class="material-symbols-outlined" style="color:var(--noteColor2)">trip_origin</span>
-						
-					</div>
-			</div>
+				<div class="notes__search function__tiles">
+						<input type="text" placeholder="Search" />
+						<div class="favorite__list">
+							<span class="material-symbols-outlined" style="color:var(--white)"> folder_copy </span>
+							<span class="material-symbols-outlined" style="color:var(--gold)"> star </span>
+							<span class="material-symbols-outlined" style="color:var(--noteColor1)">trip_origin</span>
+							<span class="material-symbols-outlined" style="color:var(--noteColor4)">trip_origin</span>
+							<span class="material-symbols-outlined" style="color:var(--noteColor3)">trip_origin</span>
+							<span class="material-symbols-outlined" style="color:var(--noteColor2)">trip_origin</span>
+						</div>
+				</div>
+
                 <div class="notes__list"></div>
+
 				<button class="notes__add function__tiles" type="button">Add Note</button>
 				
             </div>
             <div class="notes__preview">
-                <input class="notes__title" type="text" placeholder="New Note...">
+                <input class="notes__title" data-color="" type="text" placeholder="New Note...">
 				<div id="color-picker">
 					<span class="red material-symbols-outlined color-picker-button" data-color="var(--red)">trip_origin</span>
 					<span class="green material-symbols-outlined color-picker-button" data-color="var(--green)">trip_origin</span>
 					<span class="blue material-symbols-outlined color-picker-button" data-color="var(--blue)">trip_origin</span>
 					<span class="yellow material-symbols-outlined color-picker-button" data-color="var(--yellow)">trip_origin</span>
-					<span class="material-symbols-outlined color-picker-button" style="color:var(--text)">format_color_reset</span>
+					<span class="white material-symbols-outlined color-picker-button" data-color="var(--text)">format_color_reset</span>
 			</div>
                 <textarea class="notes__body" >Take Note...</textarea>
             </div>
@@ -50,6 +51,34 @@ export default class NotesView {
 		const btnAddNote = this.root.querySelector('.notes__add');
 		const inpTitle = this.root.querySelector('.notes__title');
 		const inpBody = this.root.querySelector('.notes__body');
+		const colorPickers = this.root.querySelectorAll('.color-picker-button');
+
+		// colorPickers.forEach((color) => {
+		// 	color.addEventListener('click', () => {
+		// 		console.log(color.classList.item(0));
+
+		// 		const selectedNote = this.root.querySelector('.notes__title');
+		// 		const selectedNoteSmall = this.root.querySelector(
+		// 			'.notes__small-title'
+		// 		);
+		// 		console.log(selectedNote);
+		// 		selectedNote.classList.toggle(color.classList.item(0));
+		// 		selectedNoteSmall.classList.toggle(color.classList.item(0));
+		// 	});
+		// });
+
+		colorPickers.forEach((color) => {
+			color.addEventListener('click', () => {
+				localStorage.setItem('noteColor', color.dataset.color);
+
+				const selectedNote = this.root.querySelector('.notes__title');
+				const selectedNoteSmall = this.root.querySelector(
+					'.notes__small-title'
+				);
+				selectedNote.style.color = color.dataset.color;
+				selectedNoteSmall.style.color = color.dataset.color;
+			});
+		});
 
 		btnAddNote.addEventListener('click', () => {
 			this.onNoteAdd();
@@ -72,7 +101,7 @@ export default class NotesView {
 
 		return `
             <div class="notes__list-item" data-note-id="${id}">
-                <div class="notes__small-title">${title}</div>
+                <div class="notes__small-title" data-color="">${title}</div>
                 <div class="notes__small-body">
                     ${body.substring(0, MAX_BODY_LENGTH)}
                     ${body.length > MAX_BODY_LENGTH ? '...' : ''}
@@ -112,11 +141,13 @@ export default class NotesView {
 					this.onNoteSelect(noteListItem.dataset.noteId);
 				});
 
-				// noteListItem
-				// 	.querySelector('.favorite')
-				// 	.addEventListener('click', () => {
-				// 		this.onNoteFavorite(noteListItem.dataset.noteId);
-				// 	});
+				noteListItem
+					.querySelector('.favorite')
+					.addEventListener('click', () => {
+						this.onNoteFavorite(noteListItem.dataset.noteId).addClass(
+							'favorite'
+						);
+					});
 
 				noteListItem.querySelector('.delete').addEventListener('click', () => {
 					this.onNoteDelete(noteListItem.dataset.noteId);

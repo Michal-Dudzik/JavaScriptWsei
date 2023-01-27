@@ -118,3 +118,23 @@ body {
 	font-size: 30px;
 	user-select: none;
 }
+
+.red {
+	color: var(--red);
+}
+
+.green {
+	color: var(--green);
+}
+
+.blue {
+	color: var(--blue);
+}
+
+.yellow {
+	color: var(--yellow);
+}
+
+.white {
+	color: var(--text);
+}
